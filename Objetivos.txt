@@ -1,0 +1,4 @@
+1. Deslocar os intervalos de forma dinâmica.
+
+2. Colocar EventListen para ativar os gráficos.
+
