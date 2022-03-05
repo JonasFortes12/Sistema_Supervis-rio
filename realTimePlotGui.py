@@ -14,8 +14,9 @@ def plot_data():
     
     if (cond == True):
         
-        a = s.readline()
+        a = s.readline()#Leitura dos dados da porta serial
         a.decode()
+        print(a)
         
         if(len(data) < 100):
             data = np.append(data,float(a[0:4]))
@@ -56,7 +57,7 @@ ax.set_title('Serial Data')
 ax.set_xlabel('Sample')
 ax.set_ylabel('Voltage')
 ax.set_xlim(0,100)
-ax.set_ylim(-0.5,6)
+ax.set_ylim(-0.5,11)
 lines = ax.plot([],[])[0]
 
 canvas = FigureCanvasTkAgg(fig, master=root)  # A tk.DrawingArea.
@@ -69,11 +70,11 @@ start = tk.Button(root, text = "Start", font = ('calbiri',12),command = lambda: 
 start.place(x = 100, y = 450 )
 
 root.update()
-stop = tk.Button(root, text = "Stop", font = ('calbiri',12), command = lambda:plot_stop())
+stop = tk.Button(root, text = "Stop", font = ('calbiri',12), command = lambda: plot_stop())
 stop.place(x = start.winfo_x()+start.winfo_reqwidth() + 20, y = 450)
 
 #----start serial port----
-s = sr.Serial('COM8',115200)
+s = sr.Serial('COM5',9600) #Instância da porta que será lida
 s.reset_input_buffer()
 
 

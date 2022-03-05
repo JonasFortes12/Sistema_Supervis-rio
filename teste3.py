@@ -1,5 +1,4 @@
 from tkinter import *
-# from numpy.lib.function_base import select
 from functions import *
 import matplotlib.pyplot as plt
 #Para criar a figura onde será plotado o gráfico:

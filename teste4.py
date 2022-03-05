@@ -8,6 +8,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 root = Tk()
 
+
 root.title("Dados")
 root.configure(background='#371E30')
 root.resizable(True, True) #Responsividade
