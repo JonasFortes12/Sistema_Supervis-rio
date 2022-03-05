@@ -17,6 +17,7 @@ root.geometry("1200x700")
 dataTension = loadingDataTension()
 dataCurrent = loadingDataCurrent()
 dataInput = loadingDataInput()
+
 #variáveis do intervalo dos graficos
 a = 0
 b = len(dataTension)
@@ -30,7 +31,7 @@ g1.set_ylabel('Tension')
 g1.set_xlim(a, b)
 g1.set_ylim(-1,4)
 
-lines1 = g1.plot([],[])[0]
+lines1 = g1.plot([],[])[0] #(Explicar)
 
 canva1 = FigureCanvasTkAgg(figure1, master = root) #Instancia a figura dentro da janela  
 canva1.get_tk_widget().place(relx=0.025, rely=0.2,
@@ -67,11 +68,10 @@ canva3.get_tk_widget().place(relx=0.675, rely=0.2,
                                 relwidth=0.30, relheight=0.40)# Tamnaho e posição na tela
 canva3.draw()
 
-
 i = 1 #eixo x
 j = 0 #eixo y
-on = False
 
+on = False # mudar para graficOn
 
 xTension = []
 xCurrent = []
@@ -79,7 +79,6 @@ xInput = []
 yTension = []
 yCurrent = []
 yInput = []
-
 
 def update_data():
     global i, j, a, b
@@ -94,6 +93,7 @@ def update_data():
         yInput.append(dataInput[j])
         i = i+1
         j = j+1
+        
         if(i>b):
             a = a + 1
             b = b + 1
@@ -129,8 +129,8 @@ def onOf():
     global on
     on = not on
 
-def restart():
-    global xTension, xCurrent, xInput, yCurrent, yTension, yInput, i, j, a, b, on
+def reset():
+    global xTension, xCurrent, xInput, yCurrent, yTension, yInput, i, j, a, b
     xTension = []
     xCurrent = []
     xInput = []
@@ -145,14 +145,15 @@ def restart():
     g2.set_xlim(a, b)
     g3.set_xlim(a, b)
 
-root.update()
+root.update() 
 start = tkinter.Button(root, text = "Start/Stop", font = ('calbiri',15),command = lambda: onOf())
 start.place(relx = 0.44, rely = 0.7, relwidth=0.1, relheight=0.05)
 
 root.update()
-start = tkinter.Button(root, text = "Reiniciar", font = ('calbiri',15),command = lambda: restart())
+start = tkinter.Button(root, text = "Reset", font = ('calbiri',15),command = lambda: reset())
 start.place(relx = 0.44, rely = 0.8, relwidth=0.1, relheight=0.05)
-
 
 root.after(1,plot_data)
 root.mainloop()
+
+
