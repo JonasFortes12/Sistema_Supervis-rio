@@ -9,15 +9,15 @@ root1 = tk.Tk()
 root2 = tk.Tk()
 
 #Instância da porta serial lida
-serialPort = sr.Serial('COM7',9600) 
+serialPort = sr.Serial('COM5',9600) 
 serialPort.reset_input_buffer()
 
 #variáveis do intervalo dos graficos
 a = 0
-b = 100
+b = 5
 
 #parâmetros iniciais
-i = 1 #eixo x
+i = 0 #eixo x(tempo)
 activation = False #ativar/desativar o gráfico
 
 #dados de plotagem
@@ -59,20 +59,23 @@ class Grafic():
     def update_data(self):
         global i, a, b, levelValue
 
-        self.data = serialPort.readline()
-        print(self.data)
-        self.data.decode()
+        self.data = str(serialPort.readline().decode()).split(",")
+        print(f"Level:{self.data[0]}  Time: {self.data[1]} ")
         
         xData.append(i)
-        yData.append(int(self.data))
+        
+        try:
+            yData.append(int(self.data[0]))
+            levelValue = int(self.data[0])
+        except:
+            yData.append(0)
 
-        levelValue = int(self.data)
 
-        i = i+1
+        i = float(self.data[1])
 
         if(i>b):
-            a = a + 1
-            b = b + 1
+            a = a + 0.1
+            b = b + 0.1
             self.g1.set_xlim(a, b)
 
     def plot_data(self):
