@@ -9,7 +9,7 @@ root1 = tk.Tk()
 root2 = tk.Tk()
 
 #Instância da porta serial lida
-serialPort = sr.Serial('COM5',9600) 
+serialPort = sr.Serial('COM7',9600) 
 serialPort.reset_input_buffer()
 
 #variáveis do intervalo dos graficos
