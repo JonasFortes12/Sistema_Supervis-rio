@@ -5,14 +5,14 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import serial as sr
 
 #janelas
-root1 = tk.Tk()
-root2 = tk.Tk()
+root1 = tk.Tk() #root1 global
+root2 = tk.Tk() #root2 global
 
 #Instância da porta serial lida
-serialPort = sr.Serial('COM5',9600) 
+serialPort = sr.Serial('COM7',9600) 
 serialPort.reset_input_buffer()
 
-#variáveis do intervalo dos graficos
+#variáveis do intervalo dos graficos (eixo x)
 a = 0
 b = 5
 
@@ -21,9 +21,9 @@ i = 0 #eixo x(tempo)
 activation = False #ativar/desativar o gráfico
 
 #dados de plotagem
-xData = []
-yData = []
-levelValue = 0
+xData = [] #valores de tempo
+yData = [] #valores de sinal
+levelValue = 0 #valor do nivel do tanque p/ grafico o grafico de nivel
 
 class Grafic():
 
@@ -59,39 +59,44 @@ class Grafic():
     def update_data(self):
         global i, a, b, levelValue
 
+        #Armazena os pares de dados - sinal , tempo
         self.data = str(serialPort.readline().decode()).split(",")
         print(f"Level:{self.data[0]}  Time: {self.data[1]} ")
-        
+
+        #atualizacao dos dados atuais de tempo   
+        i = float(self.data[1])
         xData.append(i)
         
+        #atualizacao dos dados atuais de sinal 
         try:
-            yData.append(int(self.data[0]))
-            levelValue = int(self.data[0])
+            yData.append(int(self.data[0])) #deine o grafico de linha
+            levelValue = int(self.data[0]) #define o gráfico de nivel
         except:
-            yData.append(0)
+            yData.append(0) 
 
 
-        i = float(self.data[1])
-
+        #Ajuste do intervalo do grafico em tempo de execucao
         if(i>b):
             a = a + 0.1
             b = b + 0.1
             self.g1.set_xlim(a, b)
 
     def plot_data(self):
-        if(activation == True):
-            self.update_data()
+        if(activation == True): #testa se o botão start foi acionado
+            self.update_data() #atualiza os dados
             
-            self.lines1.set_xdata(xData)
-            self.lines1.set_ydata(yData)
-            self.canva1.draw()
+            self.lines1.set_xdata(xData) #define o valor de tempo no grafico
+            self.lines1.set_ydata(yData) #define o valor de sinal no grafico
+            self.canva1.draw() #re-desenha o grafio na janela
 
-            self.setLevelTank()
+            self.setLevelTank() #define o valor de sinal no grafico de nivel
 
-            root2.after(1,self.plot_data)
+            root2.after(1,self.plot_data) #acionamento continuo da funcao 'plot_data'
         else:
-            root2.after(1,self.plot_data)
+            root2.after(1,self.plot_data) #acionamento continuo da funcao 'plot_data'
 
+    #define o nivel do grafico de nivel - 10 niveis
+    #pensar em um modo mais elegante de testar o nivel!
     def setLevelTank(self):
         global levelValue
         self.canva2.delete("level")
@@ -135,10 +140,12 @@ class Grafic():
             for i in range(240, 40, -20):
                 self.canva2.create_line(10, i, 100, i, fill="white", width=15, tags="level")
 
+    #mudar o estado de ativacao dos graficos - botao 'start'
     def changeActivation(self):
         global activation
         activation = not activation
 
+    #funcao p/ resetar os valores dos graficos - reinicia os graficos
     def reset(self):
         global xData, yData, i, a, b
         xData = []
@@ -153,11 +160,11 @@ class Grafic():
 class Application(Grafic):
 
     def __init__(self):
-        self.root1 = root1
-        self.root2 = root2
-        self.screen1()
-        self.widgetsScreen1()
-        root1.mainloop()
+        self.root1 = root1 #pega o root1 global
+        self.root2 = root2 #pega o root2 global
+        self.screen1() #inicia a janela 1
+        self.widgetsScreen1() #inicia os componentes da janela 1
+        root1.mainloop() #coloca a janela em loop. Continuar visivel
 
     def screen1(self):
         self.root1.title("Configurações")
@@ -173,6 +180,7 @@ class Application(Grafic):
     
     def widgetsScreen1(self):
 
+        #funcao ao acionar botao confirmar
         def confirmButtonAction(): 
             
             self.bitSec = self.cbBitSec.get()
@@ -182,11 +190,11 @@ class Application(Grafic):
             self.parity = self.cbParity.get()
             self.fluxContr = self.cbFluxContr.get()
 
-            self.root1.destroy()
-            self.screen2()
-            self.widgetsScreen2()
-            self.frameScreen2()#frames da tela 2
-            self.infoConfig()
+            self.root1.destroy() #destroi a janela 1
+            self.screen2() #inicia a janela 2
+            self.widgetsScreen2() #inicia os componentes da janela 2
+            self.frameScreen2() #plota o frame da tela 2
+            self.infoConfig() #plota as informacoes inseridas pelo usuario na janela 2
        
         def cancelButtonAction(): 
             self.root1.destroy()
