@@ -1,6 +1,6 @@
 import serial as sr
 
-serialPort = sr.Serial('COM5',9600)
+serialPort = sr.Serial('COM8',9600)
 serialPort.reset_input_buffer()
 
 while(True):

@@ -9,7 +9,7 @@ root1 = tk.Tk() #root1 global
 root2 = tk.Tk() #root2 global
 
 #Instância da porta serial lida
-serialPort = sr.Serial('COM7',9600) 
+serialPort = sr.Serial('COM5',9600) 
 serialPort.reset_input_buffer()
 
 #variáveis do intervalo dos graficos (eixo x)
@@ -45,7 +45,7 @@ class Grafic():
         
         self.canva1.draw()
 
-        self.canva2 = Canvas(master = root2, bg='#a1026c') 
+        self.canva2 = Canvas(master = root2, bg='#087E8B') 
         self.canva2.place(relx=0.75 , rely= 0.05, relwidth=0.1, relheight=0.35)
         
         #Label Tank Level
@@ -168,13 +168,13 @@ class Application(Grafic):
 
     def screen1(self):
         self.root1.title("Configurações")
-        self.root1.configure(background='#371E30')
+        self.root1.configure(background='#011936')
         self.root1.geometry("900x500")
         self.root1.resizable(False, False)
 
     def screen2(self):
         self.root2.title("Dados")
-        self.root2.configure(background='#371E30')
+        self.root2.configure(background='#011936')
         self.root2.resizable(True, True) #Responsividade
         self.root2.geometry("1100x700")
     
@@ -269,7 +269,7 @@ class Application(Grafic):
         Grafic()
 
     def frameScreen2(self):
-        self.frame1 = Frame(self.root2, bg='#a1026c', 
+        self.frame1 = Frame(self.root2, bg='#F7FFF7', 
             highlightbackground='#1e372c', highlightthickness=2)
         self.frame1.place(relx=0.05 , rely= 0.87, relwidth=0.9, relheight=0.12)
 

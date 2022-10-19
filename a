@@ -1,0 +1,71 @@
+[33mcommit 3afb82517af5cbff158ec5195068ef916dc12eea[m[33m ([m[1;36mHEAD -> [m[1;32mlevelTank[m[33m, [m[1;31morigin/levelTank[m[33m)[m
+Author: Jonas Fortes <jonascforte@hotmail.com>
+Date:   Sun Sep 4 13:22:56 2022 -0300
+
+    adição de comentários
+
+[33mcommit 80673c252de6328afcf7f69d551798345835d787[m
+Author: Jonas Fortes <jonascforte@hotmail.com>
+Date:   Sun Apr 10 18:15:15 2022 -0300
+
+    codigo do sistema p/ tanque de nivel
+
+[33mcommit 2988385d69a685bf3a17c937b979df2e2a6940d8[m[33m ([m[1;31morigin/transition[m[33m, [m[1;32mtransition[m[33m)[m
+Author: Jonas Fortes <jonascforte@hotmail.com>
+Date:   Sun Apr 10 18:11:13 2022 -0300
+
+    adição do cód arduino
+
+[33mcommit bba1a273bc5a0196ad76706f31b7a53cddca6eea[m
+Author: Jonas Fortes <jonascforte@hotmail.com>
+Date:   Sun Mar 27 21:32:46 2022 -0300
+
+    Adaptação para o tanque de nível v1
+
+[33mcommit df1c8e7d2b63d46cb219c562f18b5b00582a380a[m
+Author: Jonas Fortes <jonascforte@hotmail.com>
+Date:   Sat Mar 5 04:28:38 2022 -0300
+
+    Gráfico lendo Porta e Código em classes
+
+[33mcommit 0227587d14e759da8ac084e8aeb40d95f1e64f68[m
+Author: Jonas Fortes <jonascforte@hotmail.com>
+Date:   Sat Mar 5 04:26:09 2022 -0300
+
+    Gráfico Lendo Porta/ Sistema modularizado com classes
+
+[33mcommit 61de6adcea6ef565a425f88d42178067ea9e520b[m
+Author: Jonas Fortes <jonascforte@hotmail.com>
+Date:   Thu Sep 30 17:30:43 2021 -0300
+
+    Adicionando botão reiniciar
+
+[33mcommit 9ee45060f71d42f6326e3cab903366e09f0b9e97[m
+Author: Jonas Fortes <jonascforte@hotmail.com>
+Date:   Wed Sep 29 16:22:08 2021 -0300
+
+    Teste4  gráficos iniciando com o botão e intervalos dinâmicos
+
+[33mcommit 3da5b0caa6805a02300053a17217724e6e55a71b[m
+Author: Jonas Fortes <jonascforte@hotmail.com>
+Date:   Wed Sep 15 14:22:43 2021 -0300
+
+    exemplo 3 - Os 3 grágicos interativos dentro da janela
+
+[33mcommit 457bf8673cc1abbf07aba46a732893c1ca6534dd[m
+Author: Jonas Fortes <jonascforte@hotmail.com>
+Date:   Tue Sep 14 15:15:12 2021 -0300
+
+    Teste 2 - Gráfico dinâmico dentro da jeanela sem bug
+
+[33mcommit 3722818dc67ce2a9d5035a493d65c0bdbeb25362[m
+Author: Jonas Fortes <jonascforte@hotmail.com>
+Date:   Sat Sep 11 11:51:27 2021 -0300
+
+    grafic images nos moldes indianos
+
+[33mcommit 56b7d3edadd1a499b2c16d1cdad46bb6f4068ef7[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Jonas Fortes <jonascforte@hotmail.com>
+Date:   Sat Aug 21 02:40:10 2021 -0300
+
+    Lendo arquivos csv/problemas no gráfico dinâmico
