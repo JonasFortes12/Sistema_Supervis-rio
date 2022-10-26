@@ -61,6 +61,7 @@ class Grafic():
 
         self.plot_data()
 
+    #Criação do arquivo de relatório
     def reportInit(self):
         with open('Relatório.txt', 'w') as report:
             report.write('Relatório - Supervisão do Tanque de Nível\n\n\n')
@@ -76,7 +77,6 @@ class Grafic():
         report = open('Relatório.txt', 'a')
         report.write(f"Tensão(Nível):{self.data[0]} | Tempo:{self.data[1]}\n")
         report.close()
-
 
         # atualizacao dos dados atuais de tempo
         i = float(self.data[1])
