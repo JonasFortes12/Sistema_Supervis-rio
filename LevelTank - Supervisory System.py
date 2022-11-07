@@ -9,7 +9,7 @@ root1 = tk.Tk()  # root1 global
 root2 = tk.Tk()  # root2 global
 
 # Instância da porta serial lida
-serialPort = sr.Serial('COM5', 9600)
+serialPort = sr.Serial('COM7', 9600)
 serialPort.reset_input_buffer()
 
 # variáveis do intervalo dos graficos (eixo x)
@@ -38,7 +38,7 @@ class Grafic():
         self.g1.set_xlabel('Sample')
         self.g1.set_ylabel('Tension')
         self.g1.set_xlim(a, b)
-        self.g1.set_ylim(-1, 1100)
+        self.g1.set_ylim(-1, 55)
 
         self.lines1 = self.g1.plot([], [])[0]  # (Explicar)
 
@@ -84,8 +84,8 @@ class Grafic():
 
         # atualizacao dos dados atuais de sinal
         try:
-            yData.append(int(self.data[0]))  # deine o grafico de linha
-            levelValue = int(self.data[0])  # define o gráfico de nivel
+            yData.append(float(self.data[0]))  # define o gráfico de linha
+            levelValue = float(self.data[0])  # define o gráfico de nivel
         except:
             yData.append(0)
 
@@ -117,51 +117,51 @@ class Grafic():
         global levelValue
         self.canva2.delete("level")
 
-        if (levelValue > 0 and levelValue <= 100):
+        if (levelValue > 0 and levelValue <= 5):
             self.canva2.create_line(
                 10, 240, 100, 240, fill="white", width=15, tags="level")
 
-        elif (levelValue > 100 and levelValue <= 200):
+        elif (levelValue > 5 and levelValue <= 10):
             for i in range(240, 200, -20):
                 self.canva2.create_line(
                     10, i, 100, i, fill="white", width=15, tags="level")
 
-        elif (levelValue > 200 and levelValue <= 300):
+        elif (levelValue > 10 and levelValue <= 15):
             for i in range(240, 180, -20):
                 self.canva2.create_line(
                     10, i, 100, i, fill="white", width=15, tags="level")
 
-        elif (levelValue > 300 and levelValue <= 400):
+        elif (levelValue > 15 and levelValue <= 20):
             for i in range(240, 160, -20):
                 self.canva2.create_line(
                     10, i, 100, i, fill="white", width=15, tags="level")
 
-        elif (levelValue > 400 and levelValue <= 500):
+        elif (levelValue > 20 and levelValue <= 25):
             for i in range(240, 140, -20):
                 self.canva2.create_line(
                     10, i, 100, i, fill="white", width=15, tags="level")
 
-        elif (levelValue > 500 and levelValue <= 600):
+        elif (levelValue > 25 and levelValue <= 30):
             for i in range(240, 120, -20):
                 self.canva2.create_line(
                     10, i, 100, i, fill="white", width=15, tags="level")
 
-        elif (levelValue > 600 and levelValue <= 700):
+        elif (levelValue > 30 and levelValue <= 35):
             for i in range(240, 100, -20):
                 self.canva2.create_line(
                     10, i, 100, i, fill="white", width=15, tags="level")
 
-        elif (levelValue > 700 and levelValue <= 800):
+        elif (levelValue > 35 and levelValue <= 40):
             for i in range(240, 80, -20):
                 self.canva2.create_line(
                     10, i, 100, i, fill="white", width=15, tags="level")
 
-        elif (levelValue > 800 and levelValue <= 900):
+        elif (levelValue > 40 and levelValue <= 45):
             for i in range(240, 60, -20):
                 self.canva2.create_line(
                     10, i, 100, i, fill="white", width=15, tags="level")
 
-        elif (levelValue > 900):
+        elif (levelValue > 45):
             for i in range(240, 40, -20):
                 self.canva2.create_line(
                     10, i, 100, i, fill="white", width=15, tags="level")
