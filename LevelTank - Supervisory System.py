@@ -35,8 +35,8 @@ class Grafic():
         # Coloca a figura dentro da variavel grafico
         self.g1 = self.figure1.add_subplot(111)
         self.g1.set_title('Serial Data')
-        self.g1.set_xlabel('Sample')
-        self.g1.set_ylabel('Tension')
+        self.g1.set_xlabel('Time')
+        self.g1.set_ylabel('Signal')
         self.g1.set_xlim(a, b)
         self.g1.set_ylim(-1, 55)
 
