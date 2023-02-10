@@ -9,7 +9,7 @@ root1 = tk.Tk()  # root1 global
 root2 = tk.Tk()  # root2 global
 
 # Instância da porta serial lida
-serialPort = sr.Serial('COM7', 9600)
+serialPort = sr.Serial('COM9', 9600)
 serialPort.reset_input_buffer()
 
 # variáveis do intervalo dos graficos (eixo x)

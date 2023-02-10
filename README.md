@@ -16,7 +16,8 @@ Atualmente, o sistema implementado está adaptado para a supervisão de um módu
 
 * Emissão de relatóro dos dados coletados.
 
-
+##### Sistema - Tela de Visualização dos Dados:
+<img src="/imgs/sistema.jpg" alt="sistem" width="400"/>
 ##### Módulo Didátido - Tanque de Nível:
 <img src="/imgs/Tanque de nível.jpg" alt="drawing" width="200"/>
 
